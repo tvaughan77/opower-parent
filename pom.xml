@@ -77,54 +77,6 @@
 
 
     <build>
-        <resources>
-            <!-- include the standard resource directory -->
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-            <resource>
-                <directory>version</directory>
-                <filtering>true</filtering>
-            </resource>
-            <!-- include all of the db patch and post-patch scripts -->
-            <resource>
-                <directory>db/patches</directory>
-                <includes>
-                    <include>*.sql</include>
-                </includes>
-                <targetPath>patches/${project.artifactId}</targetPath>
-            </resource>
-            <resource>
-                <directory>db/postpatches</directory>
-                <includes>
-                    <include>*.sql</include>
-                </includes>
-                <targetPath>postpatches/${project.artifactId}</targetPath>
-            </resource>
-            <resource>
-                <directory>db/ami_schema</directory>
-                <includes>
-                    <include>*.sql</include>
-                </includes>
-                <targetPath>ami_schema</targetPath>
-            </resource>
-        </resources>
-
-        <testResources>
-            <!-- include the standard resource directory... -->
-            <testResource>
-                <directory>src/test/resources</directory>
-            </testResource>
-            <!--
-              ... and include the resources from the real build, but give
-              precedence to any test resources with the same name (this is
-              accomplished by defining this testResource after the previous one.
-            -->
-            <testResource>
-                <directory>src/main/resources</directory>
-            </testResource>
-        </testResources>
-
         <pluginManagement>
             <plugins>
                 <plugin>
