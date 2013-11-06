@@ -12,6 +12,7 @@
         <default.encoding>UTF-8</default.encoding>
         <project.build.sourceEncoding>${default.encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${default.encoding}</project.reporting.outputEncoding>
+        <version.cobertura>1.9.3</version.cobertura>
         <version.maven.assembly.plugin>2.2-beta-2</version.maven.assembly.plugin>
         <version.maven.clean.plugin>2.4.1</version.maven.clean.plugin>
         <version.maven.cobertura.plugin>2.3</version.maven.cobertura.plugin>
@@ -164,7 +165,7 @@
                         <dependency>
                             <groupId>net.sourceforge.cobertura</groupId>
                             <artifactId>cobertura</artifactId>
-                            <version>1.9.3</version>
+                            <version>${version.cobertura}</version>
                             <exclusions>
                                 <exclusion>
                                     <groupId>commons-collections</groupId>
