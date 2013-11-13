@@ -241,5 +241,28 @@
             </properties>
         </profile>
     </profiles>
+
+    <!-- 
+        See NAN-183
+        This is another temporary crutch to enable the introduction of opower-parent without also needing to solve the 
+        "how do we expose a public nexus repo" yet.  One step at a time: this should be changed to publicly-accessible
+        repositories in the near future.
+    -->
+    <distributionManagement>
+        <repository>
+            <id>secure_opower</id>
+            <name>Secure OPOWER Repository</name>
+            <url>https://nexus.va.opower.it/nexus/content/repositories/releases</url>
+            <layout>default</layout>
+        </repository>
+        <snapshotRepository>
+            <uniqueVersion>true</uniqueVersion>
+            <id>secure_opower_snapshots</id>
+            <name>Secure OPOWER Repository (Snapshots)</name>
+            <url>https://nexus.va.opower.it/nexus/content/repositories/snapshots</url>
+            <layout>default</layout>
+        </snapshotRepository>
+    </distributionManagement>
+
 </project>
 <!-- vim: set ts=4 sw=4 : -->
