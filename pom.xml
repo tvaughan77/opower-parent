@@ -8,6 +8,10 @@
     <name>Opower Parent Project</name>
     <url>http://opower.com/</url>
 
+    <scm>
+        <developerConnection>scm:git:git@github.com:opower/opower-parent.git</developerConnection>
+    </scm>
+
     <properties>
         <default.encoding>UTF-8</default.encoding>
         <project.build.sourceEncoding>${default.encoding}</project.build.sourceEncoding>
@@ -93,7 +97,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>${version.maven.surefire.plugin}</version>
+                    <version>${version.maven.surefire.plugin}</version>  <!-- intentionally set to version.maven.surefire.plugin -->
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
