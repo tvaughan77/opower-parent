@@ -21,6 +21,19 @@
         </license>
     </licenses>
 
+    <developers>
+        <developer>
+            <name>Tom Vaughan</name>
+            <email>tom@opower.com</email>
+            <organization>opower</organization>
+        </developer>
+        <developer>
+            <name>Release Engineering</name>
+            <email>re@opower.com</email>
+            <organization>opower</organization>
+        </developer>
+    </developers>
+
     <properties>
         <default.encoding>UTF-8</default.encoding>
         <project.build.sourceEncoding>${default.encoding}</project.build.sourceEncoding>
