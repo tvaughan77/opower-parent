@@ -10,8 +10,29 @@
 
     <scm>
         <developerConnection>scm:git:git@github.com:opower/opower-parent.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>The MIT License</name>
+            <url>http://maven.apache.org/guides/mini/guide-central-repository-upload.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Tom Vaughan</name>
+            <email>tom@opower.com</email>
+            <organization>opower</organization>
+        </developer>
+        <developer>
+            <name>Release Engineering</name>
+            <email>re@opower.com</email>
+            <organization>opower</organization>
+        </developer>
+    </developers>
 
     <properties>
         <default.encoding>UTF-8</default.encoding>
