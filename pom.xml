@@ -57,12 +57,13 @@
         
         <!-- 
            There are 3 separate variables for Java version just between now and when we officially switch over
-            to Java 7.  There's an iteration where we want to set source=7 and target=6, so break 'em out now
+            to Java 7.  There's an iteration where we want to set source=6 and target=7, so break 'em out now
             and consolidate 'em later.
         -->
-        <version.java>1.7</version.java>
-        <version.java.source>1.7</version.java.source>
-        <version.java.target>1.6</version.java.target>
+        <version.java>1.6</version.java>
+        <version.java.source>1.6</version.java.source>
+        <version.java.target>1.7</version.java.target>
+        <version.animal.sniffer.jre>16</version.animal.sniffer.jre>
     </properties>
 
     <reporting>
@@ -211,6 +212,18 @@
                     <artifactId>cxf-codegen-plugin</artifactId>
                     <version>${version.cxf}</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>animal-sniffer-maven-plugin</artifactId>
+                    <version>1.9</version>
+                    <configuration>
+                        <signature>
+                            <groupId>org.codehaus.mojo.signature</groupId>
+                            <artifactId>java${version.animal.sniffer.jre}</artifactId>
+                            <version>1.0</version>
+                        </signature>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -242,27 +255,21 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>animal-sniffer-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>animal-sniffer</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
-
-    <profiles>
-        <profile>
-            <!--
-              This is a crutch during our Java 7 upgrade process; when a Java 7 JDK is available, override our version.java
-              property.  This allows us to set up a standalone Java 7 Jenkins and have it compile our code under J7 while 
-              our normal jenkins compiles everything under J6.  When the upgrade is complete, we'll remove this profile.
-            -->
-            <id>java7</id>
-            <activation>
-                <jdk>1.7</jdk>
-            </activation>
-            <properties>
-                <version.java>1.7</version.java>
-                <version.java.source>1.7</version.java.source>
-                <version.java.target>1.7</version.java.target>
-            </properties>
-        </profile>
-    </profiles>
 
     <!-- 
         See NAN-183
