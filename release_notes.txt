@@ -1,5 +1,8 @@
 What's new in 1.1.0
     Java compiler source bumped to Java 7.  Target stays at Java 6 until next iteration
+
+What's new in 1.0.1
+    Removed the profile that changes the compiler source and target values based on the compile-time detection of the JDK
     
 What's new in 1.0.0
     Consolidated Opower's corporate maven plugin versions in a new "opower-parent" pom
