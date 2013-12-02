@@ -245,25 +245,6 @@
         </plugins>
     </build>
 
-    <profiles>
-        <profile>
-            <!--
-              This is a crutch during our Java 7 upgrade process; when a Java 7 JDK is available, override our version.java
-              property.  This allows us to set up a standalone Java 7 Jenkins and have it compile our code under J7 while 
-              our normal jenkins compiles everything under J6.  When the upgrade is complete, we'll remove this profile.
-            -->
-            <id>java7</id>
-            <activation>
-                <jdk>1.7</jdk>
-            </activation>
-            <properties>
-                <version.java>1.7</version.java>
-                <version.java.source>1.7</version.java.source>
-                <version.java.target>1.7</version.java.target>
-            </properties>
-        </profile>
-    </profiles>
-
     <!-- 
         See NAN-183
         This is another temporary crutch to enable the introduction of opower-parent without also needing to solve the 
