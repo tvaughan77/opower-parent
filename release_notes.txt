@@ -1,2 +1,5 @@
+What's new in 1.1.0
+    Java compiler source bumped to Java 7.  Target stays at Java 6 until next iteration
+    
 What's new in 1.0.0
     Consolidated Opower's corporate maven plugin versions in a new "opower-parent" pom
