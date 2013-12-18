@@ -60,10 +60,10 @@
             to Java 7.  There's an iteration where we want to set source=6 and target=7, so break 'em out now
             and consolidate 'em later.
         -->
-        <version.java>1.6</version.java>
-        <version.java.source>1.6</version.java.source>
+        <version.java>1.7</version.java>
+        <version.java.source>1.7</version.java.source>
         <version.java.target>1.7</version.java.target>
-        <version.animal.sniffer.jre>16</version.animal.sniffer.jre>
+        <version.animal.sniffer.jre>17</version.animal.sniffer.jre>
     </properties>
 
     <reporting>

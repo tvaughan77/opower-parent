@@ -1,5 +1,8 @@
+What's new in 1.2.0
+    Java compiler source bumped to Java 7.  Source and Target now synchronized on Java 7.
+
 What's new in 1.1.0
-    Java compiler source bumped to Java 7.  Target stays at Java 6 until next iteration
+    Java compiler target bumped to Java 7.  Source stays at Java 6 until next iteration
 
 What's new in 1.0.1
     Removed the profile that changes the compiler source and target values based on the compile-time detection of the JDK
