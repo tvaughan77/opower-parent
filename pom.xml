@@ -55,11 +55,6 @@
         <version.maven.source.plugin>2.2.1</version.maven.source.plugin>
         <version.maven.surefire.plugin>2.16</version.maven.surefire.plugin>
         
-        <!-- 
-           There are 3 separate variables for Java version just between now and when we officially switch over
-            to Java 7.  There's an iteration where we want to set source=6 and target=7, so break 'em out now
-            and consolidate 'em later.
-        -->
         <version.java>1.7</version.java>
         <version.java.source>1.7</version.java.source>
         <version.java.target>1.7</version.java.target>
