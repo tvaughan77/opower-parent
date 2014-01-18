@@ -4,7 +4,7 @@
     <groupId>com.opower</groupId>
     <artifactId>opower-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.2.2-SNAPSHOT</version>
+    <version>1.2.1-SNAPSHOT</version>
     <name>Opower Parent Project</name>
     <url>http://opower.com/</url>
 
