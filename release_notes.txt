@@ -1,3 +1,8 @@
+What's new in 1.2.1
+    Removing the animal sniffer plugin now that we're up on Java 7.  Don't need to slow *every* build down with that sanity check.
+    Consolidating the version.java.source and version.java.target under just plain old "version.java".  We have no plans to cross-compile for a looooong time
+    Adding jetty to dependencyManagement and jetty-maven-plugin to pluginManagement (centralizing Jetty version in opower-parent across pose-parent and archmage)
+
 What's new in 1.2.0
     Java compiler source bumped to Java 7.  Source and Target now synchronized on Java 7.
 
