@@ -56,9 +56,8 @@
         <version.maven.surefire.plugin>2.16</version.maven.surefire.plugin>
         
         <version.java>1.7</version.java>
-        <version.java.source>1.7</version.java.source>
-        <version.java.target>1.7</version.java.target>
-        <version.animal.sniffer.jre>17</version.animal.sniffer.jre>
+        <version.jetty>8.1.8.v20121106</version.jetty>
+
     </properties>
 
     <reporting>
@@ -127,8 +126,8 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${version.maven.compiler.plugin}</version>
                     <configuration>
-                        <source>${version.java.source}</source>
-                        <target>${version.java.target}</target>
+                        <source>${version.java}</source>
+                        <target>${version.java}</target>
                         <compilerArgument>-Xlint:unchecked</compilerArgument>
                     </configuration>
                 </plugin>
@@ -208,16 +207,9 @@
                     <version>${version.cxf}</version>
                 </plugin>
                 <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>animal-sniffer-maven-plugin</artifactId>
-                    <version>1.9</version>
-                    <configuration>
-                        <signature>
-                            <groupId>org.codehaus.mojo.signature</groupId>
-                            <artifactId>java${version.animal.sniffer.jre}</artifactId>
-                            <version>1.0</version>
-                        </signature>
-                    </configuration>
+                    <groupId>org.mortbay.jetty</groupId>
+                    <artifactId>jetty-maven-plugin</artifactId>
+                    <version>${version.jetty}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -250,21 +242,17 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>animal-sniffer-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>animal-sniffer</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-util</artifactId>
+                <version>${version.jetty}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <!-- 
         See NAN-183
