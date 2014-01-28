@@ -1,3 +1,7 @@
+What's new in 1.2.2
+    Updated maven-pmd-plugin to set targetJdk to 1.7 to avoid annoying compile-time warnings.  See RE-1650
+    Moving pose-parent's default opower.checkstyle.checks properties up to opower-parent because archmage uses those defaults too.  See NAN-239
+
 What's new in 1.2.1
     Removing the animal sniffer plugin now that we're up on Java 7.  Don't need to slow *every* build down with that sanity check.
     Consolidating the version.java.source and version.java.target under just plain old "version.java".  We have no plans to cross-compile for a looooong time
