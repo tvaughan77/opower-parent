@@ -58,6 +58,11 @@
         <version.java>1.7</version.java>
         <version.jetty>8.1.8.v20121106</version.jetty>
 
+        <!-- Shared libraries should have opower.checkstyle.checks set to "libs".
+             All other artifacts should be using "main".
+        -->
+        <opower.checkstyle.checks>main</opower.checkstyle.checks>
+        <opower.checkstyle.test.checks>main-tests</opower.checkstyle.test.checks>
     </properties>
 
     <reporting>
@@ -172,6 +177,9 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-pmd-plugin</artifactId>
                     <version>${version.maven.pmd.plugin}</version>
+                    <configuration>
+                        <targetJdk>${version.java}</targetJdk>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
