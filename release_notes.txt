@@ -1,3 +1,6 @@
+What's new in 1.2.3
+    Fixed our maven-release-plugin configuration to make it guess the released version as our tag name. RE-1661
+
 What's new in 1.2.2
     Updated maven-pmd-plugin to set targetJdk to 1.7 to avoid annoying compile-time warnings.  See RE-1650
     Moving pose-parent's default opower.checkstyle.checks properties up to opower-parent because archmage uses those defaults too.  See NAN-239

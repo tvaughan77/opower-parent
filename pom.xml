@@ -48,7 +48,7 @@
         <version.maven.jar.plugin>2.3.2</version.maven.jar.plugin>
         <version.maven.jxr.plugin>2.3</version.maven.jxr.plugin>
         <version.maven.pmd.plugin>2.7.1</version.maven.pmd.plugin>
-        <version.maven.release.plugin>2.4.1</version.maven.release.plugin>
+        <version.maven.release.plugin>2.4.2</version.maven.release.plugin>
         <version.maven.resources.plugin>2.5</version.maven.resources.plugin>
         <version.maven.shade.plugin>1.4</version.maven.shade.plugin>
         <version.maven.site.plugin>3.0</version.maven.site.plugin>
@@ -90,15 +90,6 @@
                 <artifactId>findbugs-maven-plugin</artifactId>
                 <version>${version.maven.findbugs.plugin}</version>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>${version.maven.release.plugin}</version>
-                <configuration>
-                    <tagNameFormat>@{project.version}</tagNameFormat>
-                    <goals>deploy</goals>
-                </configuration>
-            </plugin>
         </plugins>
     </reporting>
 
@@ -110,6 +101,12 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-release-plugin</artifactId>
                     <version>${version.maven.release.plugin}</version>
+                    <configuration>
+                        <!-- The '@' is not a typo; it's this plugin's delimiter -->
+                        <!-- See http://maven.apache.org/maven-release/maven-release-plugin/examples/prepare-release.html -->
+                        <tagNameFormat>@{project.version}</tagNameFormat>
+                        <goals>deploy</goals>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
