@@ -4,13 +4,13 @@
     <groupId>com.opower</groupId>
     <artifactId>opower-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.2.4</version>
+    <version>1.2.5-SNAPSHOT</version>
     <name>Opower Parent Project</name>
     <url>http://opower.com/</url>
 
     <scm>
         <developerConnection>scm:git:git@github.com:opower/opower-parent.git</developerConnection>
-        <tag>1.2.4</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <licenses>
