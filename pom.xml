@@ -43,9 +43,11 @@
         <version.maven.clean.plugin>2.4.1</version.maven.clean.plugin>
         <version.maven.cobertura.plugin>2.3</version.maven.cobertura.plugin>
         <version.maven.compiler.plugin>3.1</version.maven.compiler.plugin>
+        <version.maven.deploy.plugin>2.7</version.maven.deploy.plugin>
         <version.maven.exec.plugin>1.2</version.maven.exec.plugin>
         <version.maven.findbugs.plugin>2.4.0</version.maven.findbugs.plugin>
         <version.maven.jar.plugin>2.3.2</version.maven.jar.plugin>
+        <version.maven.javadoc.plugin>2.9.1</version.maven.javadoc.plugin>
         <version.maven.jxr.plugin>2.3</version.maven.jxr.plugin>
         <version.maven.pmd.plugin>2.7.1</version.maven.pmd.plugin>
         <version.maven.release.plugin>2.4.2</version.maven.release.plugin>
@@ -105,7 +107,8 @@
                         <!-- The '@' is not a typo; it's this plugin's delimiter -->
                         <!-- See http://maven.apache.org/maven-release/maven-release-plugin/examples/prepare-release.html -->
                         <tagNameFormat>@{project.version}</tagNameFormat>
-                        <goals>deploy</goals>
+                        <!-- Invoke 'release' profile which skips tests -->
+                        <goals>deploy -P release</goals>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -137,6 +140,16 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>${version.maven.jar.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${version.maven.javadoc.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>${version.maven.deploy.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -280,6 +293,19 @@
             <layout>default</layout>
         </snapshotRepository>
     </distributionManagement>
+
+    <profiles>
+        <profile>
+            <!--
+            Used only when invoking release:perform so we dot not re-run tests as part of the deployment
+            -->
+            <id>release</id>
+            <properties>
+                <maven.test.skip.exec>true</maven.test.skip.exec>
+                <jetty.skip>true</jetty.skip>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>
 <!-- vim: set ts=4 sw=4 : -->

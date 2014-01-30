@@ -1,3 +1,7 @@
+What's new in 1.2.4
+    Fixed our maven-release-plugin configuration to invoke the profile that skips tests when doing the mvn release:perform step. RE-1665
+    Added explicit plugin declarations for the javadoc-plugin and deploy-plugin to supress release warnings.
+
 What's new in 1.2.3
     Fixed our maven-release-plugin configuration to make it guess the released version as our tag name. RE-1661
 
