@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
     <groupId>com.opower</groupId>
     <artifactId>opower-parent</artifactId>
     <packaging>pom</packaging>
-    <version>1.2.5-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
     <name>Opower Parent Project</name>
+    <description>Parent POM for all Opower artifacts</description>
     <url>http://opower.com/</url>
 
     <scm>
+        <connection>scm:git:git@github.com:opower/opower-parent.git</connection>
         <developerConnection>scm:git:git@github.com:opower/opower-parent.git</developerConnection>
         <tag>HEAD</tag>
+        <url>https://github.com/opower/opower-parent.git</url>
     </scm>
 
     <licenses>
         <license>
             <name>The MIT License</name>
-            <url>http://maven.apache.org/guides/mini/guide-central-repository-upload.html</url>
+            <url>http://opensource.org/licenses/MIT</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -46,6 +56,7 @@
         <version.maven.deploy.plugin>2.7</version.maven.deploy.plugin>
         <version.maven.exec.plugin>1.2</version.maven.exec.plugin>
         <version.maven.findbugs.plugin>2.4.0</version.maven.findbugs.plugin>
+        <version.maven.gpg.plugin>1.1</version.maven.gpg.plugin>
         <version.maven.jar.plugin>2.3.2</version.maven.jar.plugin>
         <version.maven.javadoc.plugin>2.9.1</version.maven.javadoc.plugin>
         <version.maven.jxr.plugin>2.3</version.maven.jxr.plugin>
@@ -103,7 +114,7 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-release-plugin</artifactId>
                     <version>${version.maven.release.plugin}</version>
-                    <configuration>
+                    <configuration combine.self="override">
                         <!-- The '@' is not a typo; it's this plugin's delimiter -->
                         <!-- See http://maven.apache.org/maven-release/maven-release-plugin/examples/prepare-release.html -->
                         <tagNameFormat>@{project.version}</tagNameFormat>
@@ -272,32 +283,10 @@
         </dependencies>
     </dependencyManagement>
 
-    <!-- 
-        See NAN-183
-        This is another temporary crutch to enable the introduction of opower-parent without also needing to solve the 
-        "how do we expose a public nexus repo" yet.  One step at a time: this should be changed to publicly-accessible
-        repositories in the near future.
-    -->
-    <distributionManagement>
-        <repository>
-            <id>secure_opower</id>
-            <name>Secure OPOWER Repository</name>
-            <url>https://nexus.va.opower.it/nexus/content/repositories/releases</url>
-            <layout>default</layout>
-        </repository>
-        <snapshotRepository>
-            <uniqueVersion>true</uniqueVersion>
-            <id>secure_opower_snapshots</id>
-            <name>Secure OPOWER Repository (Snapshots)</name>
-            <url>https://nexus.va.opower.it/nexus/content/repositories/snapshots</url>
-            <layout>default</layout>
-        </snapshotRepository>
-    </distributionManagement>
-
     <profiles>
         <profile>
             <!--
-            Used only when invoking release:perform so we dot not re-run tests as part of the deployment
+            Used only when invoking release:perform so we do not re-run tests as part of the deployment
             -->
             <id>release</id>
             <properties>
@@ -305,7 +294,49 @@
                 <jetty.skip>true</jetty.skip>
             </properties>
         </profile>
+        <profile>
+            <!-- 
+            Used to configure our maven-release-plugin like Sonatype wants for releasing our opensource artifacts
+            -->
+            <id>release-opensource</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <version>${version.maven.release.plugin}</version>
+                        <configuration combine.self="override">
+                            <mavenExecutorId>forked-path</mavenExecutorId>
+                            <useReleaseProfile>false</useReleaseProfile>
+                            <arguments>${arguments} -Psonatype-oss-release</arguments>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${version.maven.gpg.plugin}</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
     </profiles>
+
+    <!--
+    <repositories>
+        DO NOT add repositories to this POM.  Repos are inherited from our sonatype parent.
+        To deploy a SNAPSHOT of this artifact or do a release, you'll need the sonatype server ids
+      in your ~/.m2/settings.xml, per these instructions: https://wiki.opower.com/display/PD/OpenSource+Hosting+with+Sonatype
+    </repositories>
+    -->
 
 </project>
 <!-- vim: set ts=4 sw=4 : -->
