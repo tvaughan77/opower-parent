@@ -309,6 +309,7 @@
                             <mavenExecutorId>forked-path</mavenExecutorId>
                             <useReleaseProfile>false</useReleaseProfile>
                             <arguments>${arguments} -Psonatype-oss-release</arguments>
+                            <tagNameFormat>@{project.version}</tagNameFormat>
                         </configuration>
                     </plugin>
                     <plugin>
