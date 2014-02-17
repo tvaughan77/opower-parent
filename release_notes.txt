@@ -1,3 +1,6 @@
+What's new in 2.0.1
+    Upgrading from jetty 8.1.8.v20121106 to jetty 8.1.14.v20131031
+
 What's new in 2.0.0
     Moving from opower private nexus to sonatype public nexus.  RE-1510
 
