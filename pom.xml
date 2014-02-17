@@ -69,7 +69,7 @@
         <version.maven.surefire.plugin>2.16</version.maven.surefire.plugin>
         
         <version.java>1.7</version.java>
-        <version.jetty>8.1.8.v20121106</version.jetty>
+        <version.jetty>8.1.14.v20131031</version.jetty>
 
         <!-- Shared libraries should have opower.checkstyle.checks set to "libs".
              All other artifacts should be using "main".
