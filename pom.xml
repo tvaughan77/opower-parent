@@ -45,6 +45,9 @@
     </developers>
 
     <properties>
+        <!-- =========================================================================== -->
+        <!--  Maven/build attributes and plugin versions                                 -->
+        <!-- =========================================================================== -->
         <default.encoding>UTF-8</default.encoding>
         <project.build.sourceEncoding>${default.encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${default.encoding}</project.reporting.outputEncoding>
@@ -71,13 +74,19 @@
         <version.maven.surefire.plugin>2.16</version.maven.surefire.plugin>
         
         <version.java>1.7</version.java>
-        <version.jetty>8.1.14.v20131031</version.jetty>
 
         <!-- Shared libraries should have opower.checkstyle.checks set to "libs".
              All other artifacts should be using "main".
         -->
         <opower.checkstyle.checks>main</opower.checkstyle.checks>
         <opower.checkstyle.test.checks>main-tests</opower.checkstyle.test.checks>
+
+        <!-- =========================================================================== -->
+        <!--  Third party library versions                                               -->
+        <!-- =========================================================================== -->
+        <version.jetty>8.1.14.v20131031</version.jetty>
+        <version.mchange.c3p0>0.9.2.1</version.mchange.c3p0>
+        <version.mchange.commons.java>0.2.3.4</version.mchange.commons.java>
     </properties>
 
     <reporting>
@@ -292,10 +301,27 @@
     </build>
     <dependencyManagement>
         <dependencies>
+            <!-- =========================================================================================================== -->
+            <!-- Web servers, application servers, etc.                                                                      -->
+            <!-- =========================================================================================================== -->
             <dependency>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-util</artifactId>
                 <version>${version.jetty}</version>
+            </dependency>
+
+            <!-- =========================================================================================================== -->
+            <!-- Databases, Caches, Pools, etc.                                                                              -->
+            <!-- =========================================================================================================== -->
+            <dependency>
+                <groupId>com.mchange</groupId>
+                <artifactId>c3p0</artifactId>
+                <version>${version.mchange.c3p0}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mchange</groupId>
+                <artifactId>mchange-commons-java</artifactId>
+                <version>${version.mchange.commons.java}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

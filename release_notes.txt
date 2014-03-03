@@ -1,6 +1,7 @@
 What's new in 2.0.2
     Managing maven-dependency-plugin to version 2.8
     Managing maven-checkstyle-plugin to version 2.11
+    Managing com.mchange C3P0 connection pool and supporting commons-java library
 
 What's new in 2.0.1
     Upgrading from jetty 8.1.8.v20121106 to jetty 8.1.14.v20131031
