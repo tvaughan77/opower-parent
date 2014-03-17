@@ -1,3 +1,10 @@
+What's new in 2.0.3
+    In support of sonatype's  transition to Aether in the maven-3.1.1 world (see https://cwiki.apache.org/confluence/display/MAVEN/AetherClassNotFound):
+    Managed maven-enforcer-plugin to 1.3
+    Managed maven-shade-plugin to 2.2
+    Managed maven-site-plugin to 3.3
+    Added maven-project-info-reports-plugin plugin and managed it to 2.7
+
 What's new in 2.0.2
     Managing maven-dependency-plugin to version 2.8
     Managing maven-checkstyle-plugin to version 2.11
