@@ -70,6 +70,7 @@
         <version.maven.javadoc.plugin>2.9.1</version.maven.javadoc.plugin>
         <version.maven.jxr.plugin>2.3</version.maven.jxr.plugin>
         <version.maven.pmd.plugin>2.7.1</version.maven.pmd.plugin>
+        <version.maven.project.info.plugin>2.7</version.maven.project.info.plugin>
         <version.maven.release.plugin>2.5</version.maven.release.plugin>
         <version.maven.resources.plugin>2.5</version.maven.resources.plugin>
         <version.maven.shade.plugin>2.2</version.maven.shade.plugin>
@@ -117,6 +118,11 @@
                 <configuration>
                     <targetJdk>${version.java}</targetJdk>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>${version.maven.project.info.plugin}</version>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
