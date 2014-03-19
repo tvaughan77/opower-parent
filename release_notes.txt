@@ -1,3 +1,6 @@
+What's new in 2.0.4
+    Removed support for cobertura plugins because we're going to switch to JaCoCo
+
 What's new in 2.0.3
     In support of sonatype's  transition to Aether in the maven-3.1.1 world (see https://cwiki.apache.org/confluence/display/MAVEN/AetherClassNotFound):
     Managed maven-enforcer-plugin to 1.3
