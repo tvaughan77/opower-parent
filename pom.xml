@@ -64,7 +64,7 @@
         <version.maven.exec.plugin>1.2</version.maven.exec.plugin>
         <version.maven.findbugs.plugin>2.4.0</version.maven.findbugs.plugin>
         <version.maven.gpg.plugin>1.4</version.maven.gpg.plugin>
-        <version.maven.jacoco.plugin>0.6.5.201403032054</version.maven.jacoco.plugin>
+        <version.maven.jacoco.plugin>0.7.0.201403182114</version.maven.jacoco.plugin>
         <version.maven.jar.plugin>2.3.2</version.maven.jar.plugin>
         <version.maven.javadoc.plugin>2.9.1</version.maven.javadoc.plugin>
         <version.maven.jxr.plugin>2.3</version.maven.jxr.plugin>
