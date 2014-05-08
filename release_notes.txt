@@ -1,4 +1,5 @@
 What's new in 2.0.5
+    Added the buildnumber-maven-plugin to our build and filtered any file under "./version/" with buildnumber information
     Indenting 4 spaces in our maven-release-plugin
 
 What's new in 2.0.4
