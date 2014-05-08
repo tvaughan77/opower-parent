@@ -1,9 +1,6 @@
 What's new in 2.0.5
-<<<<<<< HEAD
     Added the buildnumber-maven-plugin to our build and filtered any file under "./version/" with buildnumber information
-=======
     Indenting 4 spaces in our maven-release-plugin
->>>>>>> 0269c528f84dfc7687d76c5989a13115f07bb05b
 
 What's new in 2.0.4
     Removed support for cobertura plugins
