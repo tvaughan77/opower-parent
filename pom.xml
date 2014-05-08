@@ -97,6 +97,8 @@
         <sonar.junit.reportsPath>/surefire-reports</sonar.junit.reportsPath> 
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin> 
         <sonar.jacoco.reportPath>${jacoco.datafile.location}</sonar.jacoco.reportPath> 
+
+        <release.plugin.indent.size>4</release.plugin.indent.size>
     </properties>
 
     <reporting>
@@ -146,6 +148,7 @@
                         <tagNameFormat>@{project.version}</tagNameFormat>
                         <!-- Invoke 'release' profile which skips tests -->
                         <goals>deploy -P release</goals>
+                        <indentSize>${release.plugin.indent.size}</indentSize>
                     </configuration>
                 </plugin>
                 <plugin>
