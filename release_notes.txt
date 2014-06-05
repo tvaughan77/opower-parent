@@ -1,6 +1,14 @@
 What's new in 2.0.5
     Added the buildnumber-maven-plugin to our build and filtered any file under "./version/" with buildnumber information
     Indenting 4 spaces in our maven-release-plugin
+    Direct descendants of 2.0.5 won't have their src/main/resources directory included in resulting artifacts. The workaround is to include the following in your POM: 
+	<build>
+          <resources>
+            <resource>
+              <directory>src/main/resources</directory>
+            </resource>
+          </resources>
+    	</build>
 
 What's new in 2.0.4
     Removed support for cobertura plugins
