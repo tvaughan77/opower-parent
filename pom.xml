@@ -89,6 +89,7 @@
         <!-- =========================================================================== -->
         <!--  Third party library versions                                               -->
         <!-- =========================================================================== -->
+        <version.commons.lang3>3.3.2</version.commons.lang3>
         <version.jetty>8.1.14.v20131031</version.jetty>
         <version.mchange.c3p0>0.9.2.1</version.mchange.c3p0>
         <version.mchange.commons.java>0.2.3.4</version.mchange.commons.java>
@@ -405,6 +406,15 @@
                 <groupId>com.mchange</groupId>
                 <artifactId>mchange-commons-java</artifactId>
                 <version>${version.mchange.commons.java}</version>
+            </dependency>
+
+            <!-- =========================================================================================================== -->
+            <!-- Commons libraries (apache)                                                                                  -->
+            <!-- =========================================================================================================== -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${version.commons.lang3}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
