@@ -91,6 +91,7 @@
         <!-- =========================================================================== -->
         <version.commons.lang3>3.3.2</version.commons.lang3>
         <version.commons.math3>3.2</version.commons.math3>
+        <version.easymock>3.2</version.easymock>
         <version.jetty>8.1.14.v20131031</version.jetty>
         <version.mchange.c3p0>0.9.2.1</version.mchange.c3p0>
         <version.mchange.commons.java>0.2.3.4</version.mchange.commons.java>
@@ -442,6 +443,14 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-math3</artifactId>
                 <version>${version.commons.math3}</version>
+
+            <!-- =========================================================================================================== -->
+            <!-- Testing libraries                                                                                           -->
+            <!-- =========================================================================================================== -->
+            <dependency>
+                <groupId>org.easymock</groupId>
+                <artifactId>easymock</artifactId>
+                <version>${version.easymock}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
