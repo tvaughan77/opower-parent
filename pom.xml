@@ -77,7 +77,7 @@
         <version.maven.site.plugin>3.3</version.maven.site.plugin>
         <version.maven.source.plugin>2.2.1</version.maven.source.plugin>
         <version.maven.surefire.plugin>2.16</version.maven.surefire.plugin>
-        
+
         <version.java>1.7</version.java>
 
         <!-- Shared libraries should have opower.checkstyle.checks set to "libs".
@@ -95,10 +95,10 @@
         <version.mchange.commons.java>0.2.3.4</version.mchange.commons.java>
 
         <jacoco.datafile.location>${project.build.directory}/jacoco/coverage.exec</jacoco.datafile.location>
-        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis> 
-        <sonar.junit.reportsPath>/surefire-reports</sonar.junit.reportsPath> 
-        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin> 
-        <sonar.jacoco.reportPath>${jacoco.datafile.location}</sonar.jacoco.reportPath> 
+        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+        <sonar.junit.reportsPath>/surefire-reports</sonar.junit.reportsPath>
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.jacoco.reportPath>${jacoco.datafile.location}</sonar.jacoco.reportPath>
 
         <release.plugin.indent.size>4</release.plugin.indent.size>
     </properties>
@@ -381,6 +381,27 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>buildnumber-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>enforce-no-snapshots</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireReleaseDeps>
+                                    <message>No Snapshots Allowed!</message>
+                                    <onlyWhenRelease>true</onlyWhenRelease>
+                                </requireReleaseDeps>
+                            </rules>
+                            <fail>true</fail>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     <dependencyManagement>
@@ -431,7 +452,7 @@
             </properties>
         </profile>
         <profile>
-            <!-- 
+            <!--
             Used to configure our maven-release-plugin like Sonatype wants for releasing our opensource artifacts
             -->
             <id>release-opensource</id>
