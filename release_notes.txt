@@ -1,6 +1,7 @@
 What's new in 2.0.6
     Enables maven-enforcer-plugin requireReleaseDeps to verify there are no SNAPSHOT dependencies for release builds.
     Updating the managed dependency for the maven-deploy-plugin from 2.7 to 2.8.1
+    Managing apache's commons-math3 artifact at v3.2
 
 What's new in 2.0.5
     Added the buildnumber-maven-plugin to our build and filtered any file under "./version/" with buildnumber information
