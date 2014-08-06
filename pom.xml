@@ -443,6 +443,7 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-math3</artifactId>
                 <version>${version.commons.math3}</version>
+            </dependency>
 
             <!-- =========================================================================================================== -->
             <!-- Testing libraries                                                                                           -->
