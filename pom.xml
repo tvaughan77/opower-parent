@@ -36,13 +36,8 @@
 
     <developers>
         <developer>
-            <name>Tom Vaughan</name>
-            <email>tom@opower.com</email>
-            <organization>opower</organization>
-        </developer>
-        <developer>
-            <name>Release Engineering</name>
-            <email>re@opower.com</email>
+            <name>Opower Engineering</name>
+            <email>dev@opower.com</email>
             <organization>opower</organization>
         </developer>
     </developers>
