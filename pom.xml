@@ -71,11 +71,12 @@
         <version.maven.pmd.plugin>2.7.1</version.maven.pmd.plugin>
         <version.maven.project.info.plugin>2.7</version.maven.project.info.plugin>
         <version.maven.release.plugin>2.5</version.maven.release.plugin>
-        <version.maven.resources.plugin>2.5</version.maven.resources.plugin>
+        <version.maven.resources.plugin>2.6</version.maven.resources.plugin>
         <version.maven.shade.plugin>2.2</version.maven.shade.plugin>
         <version.maven.site.plugin>3.3</version.maven.site.plugin>
         <version.maven.source.plugin>2.2.1</version.maven.source.plugin>
         <version.maven.surefire.plugin>2.16</version.maven.surefire.plugin>
+        <version.docker.maven.plugin>0.10.2-OPOWER</version.docker.maven.plugin>
 
         <version.java>1.7</version.java>
 
@@ -391,6 +392,11 @@
                         <doUpdate>false</doUpdate>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.jolokia</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>${version.docker.maven.plugin}</version>
+              </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -587,6 +593,58 @@
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>deactivate-docker</id>
+            <activation>
+                <property>
+                    <name>!docker.host</name>
+                </property>
+            </activation>
+            <properties>
+                <!-- If the docker.host property hasn't been set, disable all goals of the docker-maven-plugin -->
+                <docker.skip>true</docker.skip>
+            </properties>
+        </profile>
+        <profile>
+            <id>exhaustive</id>
+            <activation>
+                <property>
+                    <name>exhaustive</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <executions>
+                            <!--
+                              Only run exhaustive tests during the exhaustive test
+                              integration test target.  The other integration tests have
+                              already been run as part of the regular test target.
+                            -->
+                            <execution>
+                                <id>exhaustive-tests</id>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                </goals>
+                                <configuration>
+                                    <argLine>${jacocoFailsafeArgLine} ${maven.failsafe.argLine}</argLine>
+                                    <redirectTestOutputToFile>true</redirectTestOutputToFile>
+                                    <runOrder>${maven.test.runOrder}</runOrder>
+                                    <systemPropertyVariables>
+                                        <build.directory>${project.build.directory}</build.directory>
+                                    </systemPropertyVariables>
+                                    <includes>
+                                        <include>**/Exhaustive*.java</include>
+                                    </includes>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>

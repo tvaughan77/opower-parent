@@ -1,6 +1,9 @@
 What's new in 2.1.0
     Adding maven failsafe plugin configuration & default plugin inclusion to opower-parent
     Setting surefire configuration (e.g. Unit tests) to run in reverse-alphabetical order every other hour
+    Upgrading maven.resources.plugin from 2.5 to 2.6 in order to use skip parameter. [ARCH-68]
+    Adding plugin management for Docker plugin. [ARCH-68]
+    Promoting exhaustive profile up from pose-parent so that it can be used by archmage as well. [ARCH-68]
 
 What's new in 2.0.7
     Managing codahale's metrics v3.0.1
