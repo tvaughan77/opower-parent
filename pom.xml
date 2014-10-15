@@ -84,6 +84,7 @@
         <!-- =========================================================================== -->
         <!--  Third party library versions                                               -->
         <!-- =========================================================================== -->
+        <version.codahale.metrics>3.0.1</version.codahale.metrics>
         <version.commons.lang3>3.3.2</version.commons.lang3>
         <version.commons.math3>3.2</version.commons.math3>
         <version.easymock>3.2</version.easymock>
@@ -438,6 +439,50 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-math3</artifactId>
                 <version>${version.commons.math3}</version>
+            </dependency>
+
+            <!-- =========================================================================================================== -->
+            <!-- Metrics Library Dependencies                                                                                -->
+            <!-- =========================================================================================================== -->
+            <dependency>
+                <groupId>com.codahale.metrics</groupId>
+                <artifactId>metrics-core</artifactId>
+                <version>${version.codahale.metrics}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.codahale.metrics</groupId>
+                <artifactId>metrics-logback</artifactId>
+                <version>${version.codahale.metrics}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.codahale.metrics</groupId>
+                <artifactId>metrics-healthchecks</artifactId>
+                <version>${version.codahale.metrics}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.codahale.metrics</groupId>
+                <artifactId>metrics-annotation</artifactId>
+                <version>${version.codahale.metrics}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.codahale.metrics</groupId>
+                <artifactId>metrics-servlets</artifactId>
+                <version>${version.codahale.metrics}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.codahale.metrics</groupId>
+                <artifactId>metrics-jersey</artifactId>
+                <version>${version.codahale.metrics}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.codahale.metrics</groupId>
+                <artifactId>metrics-jetty8</artifactId>
+                <version>${version.codahale.metrics}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.codahale.metrics</groupId>
+                <artifactId>metrics-jvm</artifactId>
+                <version>${version.codahale.metrics}</version>
             </dependency>
 
             <!-- =========================================================================================================== -->
