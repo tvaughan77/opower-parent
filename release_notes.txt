@@ -1,5 +1,6 @@
 What's new in 2.1.0
     Adding maven failsafe plugin configuration & default plugin inclusion to opower-parent
+    Setting surefire configuration (e.g. Unit tests) to run in reverse-alphabetical order every other hour
 
 What's new in 2.0.7
     Managing codahale's metrics v3.0.1
