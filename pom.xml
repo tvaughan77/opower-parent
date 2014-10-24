@@ -76,7 +76,7 @@
         <version.maven.site.plugin>3.3</version.maven.site.plugin>
         <version.maven.source.plugin>2.2.1</version.maven.source.plugin>
         <version.maven.surefire.plugin>2.16</version.maven.surefire.plugin>
-        <version.docker.maven.plugin>0.10.2-OPOWER</version.docker.maven.plugin>
+        <version.docker.maven.plugin>0.10.3-OPOWER</version.docker.maven.plugin>
 
         <version.java>1.7</version.java>
 
