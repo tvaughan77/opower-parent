@@ -175,6 +175,7 @@
                            on odd hours) and "filesystem". -->
                         <runOrder>${maven.test.runOrder}</runOrder>
                         <systemPropertyVariables>
+                            <basedir>${project.basedir}</basedir>
                             <build.directory>${project.build.directory}</build.directory>
                         </systemPropertyVariables>
                         <!-- Spawn 1 VM per core to run unit tests in parallel -->
@@ -208,6 +209,7 @@
                            on odd hours) and "filesystem". -->
                         <runOrder>${maven.test.runOrder}</runOrder>
                         <systemPropertyVariables>
+                            <basedir>${project.basedir}</basedir>
                             <build.directory>${project.build.directory}</build.directory>
                         </systemPropertyVariables>
                         <includes>

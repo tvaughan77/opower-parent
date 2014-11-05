@@ -1,3 +1,6 @@
+What's new in 2.1.1
+    Exposing the maven project base directory as a systemProperty available to unit and int tests.  [RE-2007]
+
 What's new in 2.1.0
     Adding maven failsafe plugin configuration & default plugin inclusion to opower-parent
     Setting surefire configuration (e.g. Unit tests) to run in reverse-alphabetical order every other hour
