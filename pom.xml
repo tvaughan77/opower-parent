@@ -97,6 +97,8 @@
         <version.jetty>8.1.14.v20131031</version.jetty>
         <version.mchange.c3p0>0.9.2.1</version.mchange.c3p0>
         <version.mchange.commons.java>0.2.3.4</version.mchange.commons.java>
+        <version.zookeeper>3.4.5</version.zookeeper>
+        <version.curator>2.4.2</version.curator>
 
         <jacoco.datafile.location>${project.build.directory}/jacoco/coverage.exec</jacoco.datafile.location>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
@@ -542,6 +544,40 @@
                 <groupId>com.codahale.metrics</groupId>
                 <artifactId>metrics-jvm</artifactId>
                 <version>${version.codahale.metrics}</version>
+            </dependency>
+
+            <!-- =========================================================================================================== -->
+            <!-- Zookeeper and friends                                                                                       -->
+            <!-- =========================================================================================================== -->
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${version.zookeeper}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-client</artifactId>
+                <version>${version.curator}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${version.curator}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-x-discovery</artifactId>
+                <version>${version.curator}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-recipes</artifactId>
+                <version>${version.curator}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-test</artifactId>
+                <version>${version.curator}</version>
             </dependency>
 
             <!-- =========================================================================================================== -->
