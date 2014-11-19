@@ -1,5 +1,8 @@
-What's new in 2.1.1
+What's new in 2.1.2
     Exposing the maven project base directory as a systemProperty available to unit and int tests.  [RE-2007]
+
+What's new in 2.1.1
+    Bad release (sonatype gateway timeouts in the middle of the perform; unsure of the state of that release)
 
 What's new in 2.1.0
     Adding maven failsafe plugin configuration & default plugin inclusion to opower-parent
