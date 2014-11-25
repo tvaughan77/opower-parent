@@ -1,6 +1,7 @@
-What's new in 2.2.1
+What's new in 2.3.0
+    Updating oss-parent to version 9 (from 7).
     Replacing the inline "-P" to activate a profile with the provided "releaseProfiles" attribute in the maven-release-plugin [RE-1704]
-    
+
 What's new in 2.2.0
     Manage curator and zookeeper versions. [DS-2053]
 
