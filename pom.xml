@@ -160,9 +160,10 @@
                         <!-- The '@' is not a typo; it's this plugin's delimiter -->
                         <!-- See http://maven.apache.org/maven-release/maven-release-plugin/examples/prepare-release.html -->
                         <tagNameFormat>@{project.version}</tagNameFormat>
-                        <!-- Invoke 'release' profile which skips tests -->
-                        <goals>deploy -P release</goals>
+                        <goals>deploy</goals>
                         <indentSize>${release.plugin.indent.size}</indentSize>
+                         <!-- Invoke 'release' profile which skips tests -->
+                        <releaseProfiles>release</releaseProfiles>
                     </configuration>
                 </plugin>
                 <plugin>
