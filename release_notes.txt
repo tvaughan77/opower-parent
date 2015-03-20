@@ -1,3 +1,6 @@
+What's new in 2.3.1
+    Updates maven-checkstyle-plugin to 2.15
+
 What's new in 2.3.0
     Updating oss-parent to version 9 (from 7).
     Replacing the inline "-P" to activate a profile with the provided "releaseProfiles" attribute in the maven-release-plugin [RE-1704]
