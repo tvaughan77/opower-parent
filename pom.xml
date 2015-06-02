@@ -91,7 +91,7 @@
         <!--  Third party library versions                                               -->
         <!-- =========================================================================== -->
         <version.curator>2.4.2</version.curator>
-        <version.codahale.metrics>3.0.1</version.codahale.metrics>
+        <version.codahale.metrics>3.0.2</version.codahale.metrics>
         <version.commons.lang3>3.3.2</version.commons.lang3>
         <version.commons.math3>3.2</version.commons.math3>
         <version.easymock>3.2</version.easymock>
