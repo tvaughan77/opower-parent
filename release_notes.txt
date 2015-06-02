@@ -1,3 +1,6 @@
+What's new in 2.3.2
+    Updates Codahale Metrics artifacts from 3.0.1 to 3.0.2
+
 What's new in 2.3.1
     Updates maven-release-plugin to 2.5.2 [RE-2972]
     Updates maven-checkstyle-plugin to 2.15
