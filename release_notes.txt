@@ -1,3 +1,6 @@
+What's new in 2.5.0
+    Update docker-maven-plugin version to latest [ARCH-68] [ARCH-69]
+
 What's new in 2.4.0
     Enables dependency analysis warnings using maven-dependency-plugin
 
