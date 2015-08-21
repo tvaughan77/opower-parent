@@ -2,15 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.sonatype.oss</groupId>
-        <artifactId>oss-parent</artifactId>
-        <version>9</version>
-        <!-- Disable behavior of looking at ../pom.xml and instead resolve the parent POM from the repositories -->
-        <!-- See http://maven.apache.org/ref/3.1.1/maven-model/maven.html#class_parent -->
-        <relativePath />
-    </parent>
-
     <groupId>com.opower</groupId>
     <artifactId>opower-parent</artifactId>
     <packaging>pom</packaging>
@@ -41,6 +32,17 @@
             <organization>opower</organization>
         </developer>
     </developers>
+    
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh-releases</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <!-- =========================================================================== -->
@@ -76,7 +78,9 @@
         <version.maven.site.plugin>3.3</version.maven.site.plugin>
         <version.maven.source.plugin>2.2.1</version.maven.source.plugin>
         <version.maven.surefire.plugin>2.16</version.maven.surefire.plugin>
+        <version.nexus.staging.plugin>1.6.3</version.nexus.staging.plugin>
         <version.docker.maven.plugin>0.13.2-OPOWER</version.docker.maven.plugin>
+
 
         <version.java>1.7</version.java>
 
@@ -168,7 +172,7 @@
                         <tagNameFormat>@{project.version}</tagNameFormat>
                         <goals>deploy</goals>
                         <indentSize>${release.plugin.indent.size}</indentSize>
-                         <!-- Invoke 'release' profile which skips tests -->
+                        <!-- Invoke 'release' profile which skips tests -->
                         <releaseProfiles>release</releaseProfiles>
                     </configuration>
                 </plugin>
@@ -180,8 +184,8 @@
                         <argLine>${jacocoSurefireArgLine} ${maven.surefire.argLine}</argLine>
                         <redirectTestOutputToFile>true</redirectTestOutputToFile>
                         <!-- Defines the order the tests will be run in. Supported values are "alphabetical",
-                           "reversealphabetical", "random", "hourly" (alphabetical on even hours, reverse alphabetical
-                           on odd hours) and "filesystem". -->
+                        "reversealphabetical", "random", "hourly" (alphabetical on even hours, reverse alphabetical
+                        on odd hours) and "filesystem". -->
                         <runOrder>${maven.test.runOrder}</runOrder>
                         <systemPropertyVariables>
                             <basedir>${project.basedir}</basedir>
@@ -200,22 +204,22 @@
                             <goals>
                                 <goal>integration-test</goal>
                             </goals>
-                         </execution>
-                         <execution>
-                             <!-- This fails the build if an IntTest fails -->
-                             <id>verify</id>
-                             <phase>verify</phase>
-                             <goals>
-                                 <goal>verify</goal>
-                             </goals>
-                         </execution>
+                        </execution>
+                        <execution>
+                            <!-- This fails the build if an IntTest fails -->
+                            <id>verify</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>verify</goal>
+                            </goals>
+                        </execution>
                     </executions>
                     <configuration>
                         <argLine>${jacocoFailsafeArgLine} ${maven.failsafe.argLine}</argLine>
                         <redirectTestOutputToFile>true</redirectTestOutputToFile>
                         <!-- Defines the order the tests will be run in. Supported values are "alphabetical",
-                           "reversealphabetical", "random", "hourly" (alphabetical on even hours, reverse alphabetical
-                           on odd hours) and "filesystem". -->
+                        "reversealphabetical", "random", "hourly" (alphabetical on even hours, reverse alphabetical
+                        on odd hours) and "filesystem". -->
                         <runOrder>${maven.test.runOrder}</runOrder>
                         <systemPropertyVariables>
                             <basedir>${project.basedir}</basedir>
@@ -419,7 +423,7 @@
                     <groupId>org.jolokia</groupId>
                     <artifactId>docker-maven-plugin</artifactId>
                     <version>${version.docker.maven.plugin}</version>
-              </plugin>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -635,7 +639,7 @@
                         <configuration combine.self="override">
                             <mavenExecutorId>forked-path</mavenExecutorId>
                             <useReleaseProfile>false</useReleaseProfile>
-                            <arguments>${arguments} -Psonatype-oss-release</arguments>
+                            <releaseProfiles>sonatype-oss-release</releaseProfiles>
                             <tagNameFormat>@{project.version}</tagNameFormat>
                         </configuration>
                     </plugin>
@@ -652,6 +656,21 @@
                                 </goals>
                             </execution>
                         </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>${version.nexus.staging.plugin}</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>oss-releases</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
                     </plugin>
                 </plugins>
             </build>
@@ -710,13 +729,6 @@
         </profile>
     </profiles>
 
-    <!--
-    <repositories>
-        DO NOT add repositories to this POM.  Repos are inherited from our sonatype parent.
-        To deploy a SNAPSHOT of this artifact or do a release, you'll need the sonatype server ids
-      in your ~/.m2/settings.xml, per these instructions: https://wiki.opower.com/display/PD/OpenSource+Hosting+with+Sonatype
-    </repositories>
-    -->
 
 </project>
 <!-- vim: set ts=4 sw=4 : -->
